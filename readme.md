@@ -171,15 +171,15 @@ ng generate @angular/core:standalone
 
 ## To Do
 
-[ ] Data persistence (localStorage/backend API)
-[ ] Geolocation verification for check-in
-[ ] Attendance reports and analytics
-[ ] User authentication system
-[ ] Push notifications for check-in reminders
-[ ] Break time tracking
-[ ] Export attendance data (CSV/PDF)
-[ ] Multi-user support
-[ ] Offline mode with sync
+- [ ] Data persistence (localStorage/backend API)
+- [ ] Geolocation verification for check-in
+- [ ] Attendance reports and analytics
+- [ ] User authentication system
+- [ ] Push notifications for check-in reminders
+- [ ] Break time tracking
+- [ ] Export attendance data (CSV/PDF)
+- [ ] Multi-user support
+- [ ] Offline mode with sync
 
 
 ## Debugging
@@ -198,8 +198,6 @@ ionic capacitor run android --livereload --external
 ## License
 
 This project is licensed under the MIT License.
-
-***
 
 ## Credits
 
