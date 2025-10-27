@@ -1,91 +1,164 @@
 $primary: #003f88;
 $secondary: #00509d;
+$present-color: #2e7d32;
+$absent-color: #c62828;
+$text-dark: #1a1a1a;
+$text-light: #666666;
+
+ion-content {
+    --background: #f0f0f0;
+}
 
 .attendance-list-container {
-    background-color: #f0f0f0;
-    border-radius: 10px;
-    padding: 20px;
+    padding: 16px;
     max-width: 600px;
     margin: 0 auto;
 }
 
-.attendance-list-title {
-    font-size: 24px;
-    font-weight: bold;
-    color: $secondary;
+// Calendar trigger button in toolbar
+.calendar-trigger-btn {
+    --color: $secondary;
+    --padding-start: 8px;
+    --padding-end: 8px;
+
+    ion-icon {
+        font-size: 26px;
+    }
 }
 
+// Modal Datetime Styling
+ion-modal {
+    --border-radius: 20px;
+    --height: auto;
+    --width: 90%;
+    --max-width: 400px;
+}
+
+ion-datetime {
+    --background: #ffffff;
+    --background-rgb: 255, 255, 255;
+    border-radius: 16px;
+    padding: 16px;
+
+    // Primary color for selections
+    --ion-color-primary: $secondary;
+    --ion-color-primary-rgb: 0, 80, 157;
+    --ion-color-primary-contrast: #ffffff;
+
+    // Styling the calendar
+    --ion-color-step-200: $secondary;
+    --ion-color-step-300: lighten($secondary, 10%);
+}
+
+// Fix for today's date styling
+ion-datetime::part(calendar-day today) {
+    color: $secondary;
+    font-weight: 700;
+    border: 2px solid $secondary;
+    border-radius: 50%;
+}
+
+// Fix for selected date
+ion-datetime::part(calendar-day active) {
+    background: $secondary;
+    color: #ffffff;
+    font-weight: 700;
+    border-radius: 50%;
+}
+
+// Attendance List
 .attendance-list {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 12px;
 }
 
 .attendance-item {
     background-color: #f0f0f0;
-    border-radius: 10px;
-    padding: 16px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    border-radius: 12px;
+    padding: 16px 20px;
     box-shadow:
         5px 5px 10px #d0d0d0,
         -5px -5px 10px #ffffff;
+    transition: transform 0.2s ease;
+
+    &:active {
+        transform: scale(0.98);
+    }
 }
 
 .attendance-item-info {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
 }
 
 .attendance-item-name {
     font-size: 16px;
-    font-weight: bold;
-    color: $secondary;
+    font-weight: 600;
+    color: $text-dark;
+    flex: 1;
 }
 
 .attendance-item-status {
-    font-size: 14px;
-    color: $primary;
+    ion-icon {
+        font-size: 32px;
+
+        &.status-present {
+            color: $present-color;
+        }
+
+        &.status-absent {
+            color: $absent-color;
+        }
+    }
 }
 
-ion-datetime {
-    padding: 16px;
-    border-radius: 10px;
-    background-color: #f0f0f0;
-    box-shadow:
-        5px 5px 10px #d0d0d0,
-        -5px -5px 10px #ffffff;
+// Empty State
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    text-align: center;
+
+    .empty-icon {
+        font-size: 80px;
+        color: lighten($secondary, 30%);
+        margin-bottom: 16px;
+    }
+
+    p {
+        color: $secondary;
+        font-size: 16px;
+        margin: 0 0 20px 0;
+    }
+
+    ion-button {
+        --background: transparent;
+        --border-color: $secondary;
+        --color: $secondary;
+        --border-radius: 12px;
+        --border-width: 2px;
+        --padding-start: 24px;
+        --padding-end: 24px;
+        color: $secondary;
+        font-weight: 600;
+    }
+}
+
+// Header styling
+ion-toolbar {
     --background: #f0f0f0;
-    --background-rgb: 240, 240, 240;
-
-    /* Calendar styling */
-    --ion-color-primary: $secondary;
-    --ion-color-primary-contrast: #ffffff;
-
-    /* Calendar header */
-    --ion-color-step-200: $secondary;
-
-    /* Selected date */
-    --highlight-color: $secondary;
-    --highlight-color-rgb: 0, 80, 157;
-
-    /* Border colors */
-    --border-color: transparent;
-    --border-radius: 8px;
+    --color: $secondary;
 }
 
-/* Remove default ion-datetime background */
-ion-datetime::part(calendar-body) {
-    background: transparent;
-}
-
-/* Style the selected date */
-ion-datetime::part(calendar-day selected) {
-    background: $secondary;
-    color: #ffffff;
-    --color: white;
-    box-shadow:
-        3px 3px 6px #d0d0d0,
-        -3px -3px 6px #ffffff;
+ion-title {
+    font-weight: 700;
+    color: $secondary;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }

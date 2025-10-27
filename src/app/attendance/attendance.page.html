@@ -1,6 +1,11 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>History</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="openDatePicker()">
+        <ion-icon slot="icon-only" name="calendar-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -10,28 +15,36 @@
       <ion-title size="large">History</ion-title>
     </ion-toolbar>
   </ion-header>
+
   <div class="attendance-list-container">
-    <div class="date-picker-container">
-      <ion-button (click)="openDatePicker()" expand="block" fill="outline">
-        {{ selectedDate ? selectedDate : 'Select Date' }}
-      </ion-button>
+    <!-- Modal with datetime picker -->
+    <ion-modal [keepContentsMounted]="true" [isOpen]="isDatePickerOpen" (didDismiss)="closeDatePicker()">
+      <ng-template>
+        <ion-datetime id="attendance-datetime" presentation="date" [value]="selectedDate"
+          (ionChange)="dateSelected($event)" showDefaultButtons="true" doneText="Done" cancelText="Cancel">
+        </ion-datetime>
+      </ng-template>
+    </ion-modal>
 
-      <ion-modal [isOpen]="isDatePickerOpen">
-        <ng-template>
-          <ion-datetime presentation="date" (ionChange)="dateSelected($event.detail.value)"
-            (ionCancel)="isDatePickerOpen = false" showDefaultButtons="true">
-          </ion-datetime>
-        </ng-template>
-      </ion-modal>
-    </div>
-
-    <div class="attendance-list">
+    <!-- Attendance Records List -->
+    <div class="attendance-list" *ngIf="filteredRecords.length > 0">
       <div class="attendance-item" *ngFor="let record of filteredRecords">
         <div class="attendance-item-info">
           <span class="attendance-item-name">{{ record.date }}</span>
-          <span class="attendance-item-status">{{ record.status }}</span>
+          <div class="attendance-item-status">
+            <ion-icon [name]="record.status === 'Present' ? 'checkmark-circle' : 'close-circle'"
+              [class.status-present]="record.status === 'Present'" [class.status-absent]="record.status === 'Absent'">
+            </ion-icon>
+          </div>
         </div>
       </div>
+    </div>
+
+    <!-- Empty State -->
+    <div class="empty-state" *ngIf="filteredRecords.length === 0">
+      <ion-icon name="calendar-outline" class="empty-icon"></ion-icon>
+      <p>No data found for selected date</p>
+      <ion-button fill="outline" (click)="resetFilter()">Show All Records</ion-button>
     </div>
   </div>
 </ion-content>

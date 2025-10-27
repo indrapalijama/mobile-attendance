@@ -2,7 +2,7 @@ $primary: #003f88;
 $secondary: #00509d;
 
 .city-background {
-    height: 35vh;
+    height: 15vh;
     width: 100%;
     position: relative;
     overflow: hidden;
@@ -91,9 +91,4 @@ $secondary: #00509d;
     &:active {
         background-color: #f8f9fa;
     }
-}
-
-// Ionic Overrides
-ion-content::part(scroll) {
-    overflow: visible;
 }

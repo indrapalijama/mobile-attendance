@@ -20,6 +20,7 @@ ion-tab-bar {
 }
 
 #tab-button-home,
+#tab-button-check-in,
 #tab-button-attendance,
 #tab-button-account {
     background: #00509d;
@@ -45,6 +46,7 @@ ion-tab-button:hover {
 }
 
 #tab-button-home > ion-icon:after,
+#tab-button-check-in > ion-icon:after,
 #tab-button-attendance > ion-icon:after,
 #tab-button-account > ion-icon:after {
     background: none repeat scroll 0 0 transparent;
@@ -61,6 +63,7 @@ ion-tab-button:hover {
 }
 
 #tab-button-home.tab-selected > ion-icon:after,
+#tab-button-check-in.tab-selected > ion-icon:after,
 #tab-button-attendance.tab-selected > ion-icon:after,
 #tab-button-account.tab-selected > ion-icon:after {
     width: 30px;

@@ -1,0 +1,53 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Check-In</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Check-In</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="check-in-container">
+    <!-- Status Badge -->
+    <div class="status-badge" [class.checked-in]="isCheckedIn">
+      <ion-icon [name]="isCheckedIn ? 'checkmark-circle' : 'time-outline'"></ion-icon>
+      <span>{{ isCheckedIn ? 'Checked In' : 'Not yet checked-in' }}</span>
+    </div>
+
+    <!-- Large Check-In Button -->
+    <div class="check-in-button">
+      <button class="check-in-btn" (click)="toggleCheckIn()" [class.active]="isCheckedIn">
+        <ion-icon name="power"></ion-icon>
+      </button>
+      <p class="button-label">{{ isCheckedIn ? 'Check-Out' : 'Check-In' }}</p>
+    </div>
+
+    <!-- Current Time -->
+    <div class="current-time">
+      <p class="time">{{ currentTime }}</p>
+    </div>
+
+    <!-- Today's Quick Stats (Only if checked in) -->
+    <div class="quick-stats" *ngIf="isCheckedIn">
+      <div class="quick-stat-item">
+        <ion-icon name="log-in-outline"></ion-icon>
+        <div class="stat-info">
+          <span class="stat-label">Started</span>
+          <span class="stat-value">{{ checkInTime }}</span>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div class="quick-stat-item">
+        <ion-icon name="timer-outline"></ion-icon>
+        <div class="stat-info">
+          <span class="stat-label">Duration</span>
+          <span class="stat-value">{{ workingDuration }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
