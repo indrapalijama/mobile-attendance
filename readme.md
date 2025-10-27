@@ -9,7 +9,7 @@ A modern employee attendance tracking application built with Ionic Angular and s
 - **Icon-Based Status**: Visual indicators (checkmark for Present, close for Absent)
 - **Neomorphic Design**: Modern, soft UI design with shadow-based depth effects
 - **Real-Time Clock**: Live time display with accurate timezone handling
-- **Responsive Layout**: Optimized for mobile devices with 4-tab navigation
+- **Responsive Layout**: Optimized for mobile devices with 4-tab navigation.
 
 
 ## Tech Stack
