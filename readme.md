@@ -49,8 +49,8 @@ npm                          : 10.9.2
 1. **Clone the repository:**
 
 ```bash
-git clone <repository-url>
-cd attendance
+git clone https://github.com/indrapalijama/mobile-attendance
+cd mobile-attendance
 ```
 
 2. **Install dependencies:**
