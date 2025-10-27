@@ -1,2 +1,17 @@
-// For information on how to create your own theme, please see:
-// http://ionicframework.com/docs/theming/
+ion-title.title-large {
+    color: #00509d;
+    font-size: 30px;
+}
+
+ion-title {
+    --color: white;
+}
+
+ion-toolbar {
+    --background: #00509d;
+    --color: white;
+}
+
+ion-content {
+    --ion-background-color: #f0f0f0;
+}

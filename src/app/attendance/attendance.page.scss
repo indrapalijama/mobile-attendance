@@ -1,0 +1,91 @@
+$primary: #003f88;
+$secondary: #00509d;
+
+.attendance-list-container {
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.attendance-list-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: $secondary;
+}
+
+.attendance-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.attendance-item {
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow:
+        5px 5px 10px #d0d0d0,
+        -5px -5px 10px #ffffff;
+}
+
+.attendance-item-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.attendance-item-name {
+    font-size: 16px;
+    font-weight: bold;
+    color: $secondary;
+}
+
+.attendance-item-status {
+    font-size: 14px;
+    color: $primary;
+}
+
+ion-datetime {
+    padding: 16px;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+    box-shadow:
+        5px 5px 10px #d0d0d0,
+        -5px -5px 10px #ffffff;
+    --background: #f0f0f0;
+    --background-rgb: 240, 240, 240;
+
+    /* Calendar styling */
+    --ion-color-primary: $secondary;
+    --ion-color-primary-contrast: #ffffff;
+
+    /* Calendar header */
+    --ion-color-step-200: $secondary;
+
+    /* Selected date */
+    --highlight-color: $secondary;
+    --highlight-color-rgb: 0, 80, 157;
+
+    /* Border colors */
+    --border-color: transparent;
+    --border-radius: 8px;
+}
+
+/* Remove default ion-datetime background */
+ion-datetime::part(calendar-body) {
+    background: transparent;
+}
+
+/* Style the selected date */
+ion-datetime::part(calendar-day selected) {
+    background: $secondary;
+    color: #ffffff;
+    --color: white;
+    box-shadow:
+        3px 3px 6px #d0d0d0,
+        -3px -3px 6px #ffffff;
+}

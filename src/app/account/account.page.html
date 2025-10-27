@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Profile</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div class="city-background">
+    <img src="https://images.unsplash.com/photo-1604856420566-576ba98b53cd?q=80&w=2532&auto=format&fit=crop"
+      alt="City skyline" />
+  </div>
+  <div class="profile-container">
+    <div class="avatar-container">
+      <img src="https://ionicframework.com/docs/img/demos/avatar.svg" alt="Profile photo" class="profile-avatar" />
+    </div>
+    <div class="profile-content">
+      <div class="profile-name">Samudra</div>
+      <div class="profile-phone">+62 8098 9999</div>
+      <div class="actions-card">
+        <div class="action-item" (click)="editProfile()">
+          <ion-icon name="pencil-outline"></ion-icon>
+          <span>Edit Profile</span>
+        </div>
+      </div>
+
+      <div class="actions-card">
+        <div class="action-item" (click)="logout()">
+          <ion-icon name="log-out-outline"></ion-icon>
+          <span>Log Out</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

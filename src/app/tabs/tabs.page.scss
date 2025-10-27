@@ -1,1 +1,68 @@
+ion-tabs {
+    background: #00509d;
+}
 
+ion-tab-bar {
+    background: #00509d;
+    width: 90% !important;
+    max-width: 400px !important;
+    border-radius: 30px;
+    margin: 5px 0px 5px 5% !important;
+    height: 75px;
+    max-height: 95px;
+    border: unset;
+    --color: #f1f3f7;
+}
+
+.tab-selected ion-icon {
+    color: white;
+    padding-bottom: 9px;
+}
+
+#tab-button-home,
+#tab-button-attendance,
+#tab-button-account {
+    background: #00509d;
+    -webkit-box-shadow: 5px 5px 15px -15px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: 5px 5px 15px -15px rgba(0, 0, 0, 0.4);
+    box-shadow: 5px 5px 15px -15px rgba(0, 0, 0, 0.4);
+    --border: none;
+    max-height: 56px;
+}
+
+.custom-tab-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: #f1f3f7;
+}
+
+ion-tab-button:hover {
+    ion-icon,
+    ion-label {
+        color: white !important;
+        --ion-color-base: white !important;
+    }
+}
+
+#tab-button-home > ion-icon:after,
+#tab-button-attendance > ion-icon:after,
+#tab-button-account > ion-icon:after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 7px;
+    position: absolute;
+    transition:
+        width 0.4s ease 0s,
+        background-color 0.4s ease;
+    width: 0;
+    border-radius: 5px;
+}
+
+#tab-button-home.tab-selected > ion-icon:after,
+#tab-button-attendance.tab-selected > ion-icon:after,
+#tab-button-account.tab-selected > ion-icon:after {
+    width: 30px;
+    background: #f1f3f7;
+}

@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>History</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">History</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <div class="attendance-list-container">
+    <div class="date-picker-container">
+      <ion-button (click)="openDatePicker()" expand="block" fill="outline">
+        {{ selectedDate ? selectedDate : 'Select Date' }}
+      </ion-button>
+
+      <ion-modal [isOpen]="isDatePickerOpen">
+        <ng-template>
+          <ion-datetime presentation="date" (ionChange)="dateSelected($event.detail.value)"
+            (ionCancel)="isDatePickerOpen = false" showDefaultButtons="true">
+          </ion-datetime>
+        </ng-template>
+      </ion-modal>
+    </div>
+
+    <div class="attendance-list">
+      <div class="attendance-item" *ngFor="let record of filteredRecords">
+        <div class="attendance-item-info">
+          <span class="attendance-item-name">{{ record.date }}</span>
+          <span class="attendance-item-status">{{ record.status }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
